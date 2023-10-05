@@ -9,6 +9,8 @@ import MyState from "./context/data/myState";
 import Login from "./pages/registration/Login";
 import Signup from "./pages/registration/Signup";
 import ProductInfo from "./pages/productInfo/ProductInfo";
+import AddProduct from "./pages/admin/pages/AddProduct";
+import UpdateProduct from "./pages/admin/pages/UpdateProduct";
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/productInfo/:id" element={<ProductInfo />} />
+          <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/updateProduct" element={<UpdateProduct />} />
           <Route path="/*" element={<NoPage />} />
         </Routes>
       </Router>
