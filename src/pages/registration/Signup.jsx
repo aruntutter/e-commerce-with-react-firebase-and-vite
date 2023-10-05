@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -34,9 +34,17 @@ const Signup = () => {
           />
         </div>
         <div className=" flex justify-center mb-3">
-          <button className=" bg-yellow-500 w-full text-black font-bold  px-2 py-2 rounded-lg">
+          <button className=" bg-yellow-500 w-full text-white font-bold  px-2 py-2 rounded-lg">
             Signup
           </button>
+        </div>
+        <div>
+          <h2 className="text-white">
+            Have an account{" "}
+            <Link className=" text-yellow-500 font-bold" to={"/login"}>
+              Login
+            </Link>
+          </h2>
         </div>
       </div>
     </div>
