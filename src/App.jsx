@@ -11,6 +11,8 @@ import Signup from "./pages/registration/Signup";
 import ProductInfo from "./pages/productInfo/ProductInfo";
 import AddProduct from "./pages/admin/pages/AddProduct";
 import UpdateProduct from "./pages/admin/pages/UpdateProduct";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -28,6 +30,7 @@ const App = () => {
           <Route path="/updateProduct" element={<UpdateProduct />} />
           <Route path="/*" element={<NoPage />} />
         </Routes>
+        <ToastContainer />
       </Router>
     </MyState>
   );
