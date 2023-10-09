@@ -72,20 +72,23 @@ const App = () => {
 export default App;
 
 // User
-export const ProtectedRoute = () => {
+export const ProtectedRoute = ({ children }) => {
   const user = localStorage.getItem("user");
   if (user) {
-    return Children;
+    return children;
   } else {
     return <Navigate to={"/login"} />;
   }
 };
 
 // Admin
-export const ProtectedRouteForAdmin = () => {
+export const ProtectedRouteForAdmin = ({ children }) => {
+  console.log("ProtectedRouteForAdmin component called");
   const admin = JSON.parse(localStorage.getItem("user"));
 
-  if (admin.user.email === "aruntutter19@gmail.com") {
+  if (admin.user.email === "knupadhyay784@gmail.com") {
+    return children;
+  } else {
     return <Navigate to={"/login"} />;
   }
 };
