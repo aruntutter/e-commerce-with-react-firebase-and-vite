@@ -1,28 +1,31 @@
-import { Fragment, useContext, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import React, { Fragment, useContext, useState } from "react";
+import myContext from "../../context/data/myContext";
 import { BsFillCloudSunFill } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
-import myContext from "../../context/data/myContext";
+import { Link } from "react-router-dom";
+import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
+import { useSelector } from "react-redux";
 
-const Navbar = () => {
+function Navbar() {
   const context = useContext(myContext);
   const { mode, toggleMode } = context;
+
   const [open, setOpen] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // console.log(user.user.email);
+  // console.log(user.user.email)
 
   const logout = () => {
     localStorage.clear("user");
     window.location.href = "/login";
   };
 
+  const cartItems = useSelector((state) => state.cart);
+
   return (
-    <div className="bg-white sticky top-0 z-50  ">
-      {/* Mobile menu */}
+    <div className="bg-white sticky top-0 z-50">
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
           <Transition.Child
@@ -72,6 +75,7 @@ const Navbar = () => {
                   >
                     All Products
                   </Link>
+
                   {user ? (
                     <div className="flow-root">
                       <Link
@@ -86,7 +90,7 @@ const Navbar = () => {
                     ""
                   )}
 
-                  {user?.user?.email === "aruntutter19@gmail.com" ? (
+                  {user?.user?.email === "knupadhyay784@gmail.com" ? (
                     <div className="flow-root">
                       <Link
                         to={"/dashboard"}
@@ -111,7 +115,15 @@ const Navbar = () => {
                       </a>
                     </div>
                   ) : (
-                    ""
+                    <div className="flow-root">
+                      <Link
+                        to={"/signup"}
+                        className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                        style={{ color: mode === "dark" ? "white" : "" }}
+                      >
+                        Signup
+                      </Link>
+                    </div>
                   )}
                   <div className="flow-root">
                     <Link
@@ -204,7 +216,7 @@ const Navbar = () => {
                       className=" text-2xl font-bold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      Epic-Mart
+                      E-Bharat
                     </h1>
                   </div>
                 </Link>
@@ -219,7 +231,6 @@ const Navbar = () => {
                   >
                     All Products
                   </Link>
-
                   {user ? (
                     <Link
                       to={"/order"}
@@ -229,10 +240,16 @@ const Navbar = () => {
                       Order
                     </Link>
                   ) : (
-                    ""
+                    <Link
+                      to={"/signup"}
+                      className="text-sm font-medium text-gray-700 "
+                      style={{ color: mode === "dark" ? "white" : "" }}
+                    >
+                      Signup
+                    </Link>
                   )}
 
-                  {user?.user?.email === "aruntutter19@gmail.com" ? (
+                  {user?.user?.email === "knupadhyay784@gmail.com" ? (
                     <Link
                       to={"/dashboard"}
                       className="text-sm font-medium text-gray-700 "
@@ -282,10 +299,8 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                {/* Search */}
                 <div className="flex lg:ml-6">
                   <button className="" onClick={toggleMode}>
-                    {/* <MdDarkMode size={35} style={{ color: mode === 'dark' ? 'white' : '' }} /> */}
                     {mode === "light" ? (
                       <FiSun className="" size={30} />
                     ) : "dark" ? (
@@ -322,7 +337,7 @@ const Navbar = () => {
                       className="ml-2 text-sm font-medium text-gray-700 group-"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      0
+                      {cartItems.length}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
@@ -334,6 +349,6 @@ const Navbar = () => {
       </header>
     </div>
   );
-};
+}
 
 export default Navbar;

@@ -5,7 +5,7 @@ import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { FaUser, FaCartPlus } from "react-icons/fa";
 import { AiFillShopping, AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 
-const DashboardTab = () => {
+function DashboardTab() {
   const context = useContext(myContext);
   const { mode } = context;
   let [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,6 @@ const DashboardTab = () => {
   function openModal() {
     setIsOpen(true);
   }
-
   return (
     <>
       <div className="container mx-auto">
@@ -448,6 +447,6 @@ const DashboardTab = () => {
       </div>
     </>
   );
-};
+}
 
 export default DashboardTab;
