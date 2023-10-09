@@ -17,6 +17,11 @@ function DashboardTab() {
   function openModal() {
     setIsOpen(true);
   }
+
+  const add = () => {
+    window.location.href = "/addproduct";
+  };
+
   return (
     <>
       <div className="container mx-auto">
@@ -66,6 +71,7 @@ function DashboardTab() {
                 </h1>
                 <div className=" flex justify-end">
                   <button
+                    onClick={add}
                     type="button"
                     className="focus:outline-none text-white bg-pink-600 shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] border hover:bg-pink-700 outline-0 font-medium rounded-lg text-sm px-5 py-2.5 mb-2"
                     style={{
@@ -208,6 +214,7 @@ function DashboardTab() {
                 </div>
               </div>
             </TabPanel>
+
             <TabPanel>
               {/* <Order order={order} setOrder={setOrder} setLoading={setLoading} /> */}
               <div className="relative overflow-x-auto mb-16">
@@ -345,6 +352,7 @@ function DashboardTab() {
                 </table>
               </div>
             </TabPanel>
+
             <TabPanel>
               {/* <User addressInfo={addressInfo} setAddressInfo={setAddressInfo} setLoading={setLoading} /> */}
               <div className="relative overflow-x-auto mb-10">
