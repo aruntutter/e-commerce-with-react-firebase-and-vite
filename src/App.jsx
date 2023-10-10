@@ -83,7 +83,7 @@ export const ProtectedRoute = ({ children }) => {
 
 // Admin
 export const ProtectedRouteForAdmin = ({ children }) => {
-  console.log("ProtectedRouteForAdmin component called");
+  // console.log("ProtectedRouteForAdmin component called");
   const admin = JSON.parse(localStorage.getItem("user"));
 
   if (admin.user.email === "knupadhyay784@gmail.com") {
