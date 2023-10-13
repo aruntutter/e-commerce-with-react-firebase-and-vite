@@ -7,16 +7,17 @@ import {
   query,
   onSnapshot,
   orderBy,
-  QuerySnapshot,
   doc,
   setDoc,
   deleteDoc,
+  getDocs,
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { fireDB } from "../../firebase/FirebaseConfig";
 
-const MyState = (props) => {
+const myState = (props) => {
   const [mode, setMode] = useState("light");
+
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
@@ -73,7 +74,7 @@ const MyState = (props) => {
     }
   };
 
-  const [product, setproduct] = useState([]);
+  const [product, setProduct] = useState([]);
 
   // Get Product
   const getProductData = async () => {
@@ -88,7 +89,7 @@ const MyState = (props) => {
           productArray.push({ ...doc.data(), id: doc.id });
         });
 
-        setproduct(productArray);
+        setProduct(productArray);
         setLoading(false);
       });
 
@@ -114,10 +115,10 @@ const MyState = (props) => {
     try {
       await setDoc(doc(fireDB, "products", products.id), products);
       toast.success("Product Updated successfully!");
-      getProductData();
       setTimeout(() => {
         window.location.href = "/dashboard";
       }, 800);
+      getProductData();
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -139,6 +140,30 @@ const MyState = (props) => {
     }
   };
 
+  const [order, setOrder] = useState([]);
+
+  const getOrderData = async () => {
+    setLoading(true);
+    try {
+      const result = await getDocs(collection(fireDB, "order"));
+      const ordersArray = [];
+      result.forEach((doc) => {
+        ordersArray.push(doc.data());
+        setLoading(false);
+      });
+      setOrder(ordersArray);
+      console.log(ordersArray);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getOrderData();
+  }, []);
+
   return (
     <MyContext.Provider
       value={{
@@ -153,6 +178,7 @@ const MyState = (props) => {
         editHandle,
         updateProduct,
         deleteProduct,
+        order,
       }}
     >
       {props.children}
@@ -160,4 +186,4 @@ const MyState = (props) => {
   );
 };
 
-export default MyState;
+export default myState;
