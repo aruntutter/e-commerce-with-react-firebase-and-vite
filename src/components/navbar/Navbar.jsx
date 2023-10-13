@@ -169,7 +169,7 @@ function Navbar() {
             color: mode === "dark" ? "white" : "",
           }}
         >
-          Get free delivery on orders over ₹300
+          Nature's Gallery: Portraits on Organic Canvas
         </p>
 
         <nav
@@ -216,7 +216,7 @@ function Navbar() {
                       className=" text-2xl font-bold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      E-Bharat
+                      EverGreenArt
                     </h1>
                   </div>
                 </Link>
