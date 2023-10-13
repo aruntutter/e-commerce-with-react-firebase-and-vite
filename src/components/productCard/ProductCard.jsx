@@ -41,6 +41,7 @@ function ProductCard() {
             .filter((obj) => obj.title.toLowerCase().includes(searchkey))
             .filter((obj) => obj.category.toLowerCase().includes(filterType))
             .filter((obj) => obj.price.includes(filterPrice))
+            .slice(0, 8)
             .map((item, index) => {
               const { title, price, description, imageUrl, id } = item;
               return (
