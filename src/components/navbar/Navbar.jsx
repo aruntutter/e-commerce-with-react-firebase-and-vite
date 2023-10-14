@@ -125,7 +125,8 @@ function Navbar() {
                       </Link>
                     </div>
                   )}
-                  <div className="flow-root">
+                  {/* User Profile Pic */}
+                  {/* <div className="flow-root">
                     <Link
                       to={"/"}
                       className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
@@ -136,24 +137,7 @@ function Navbar() {
                         alt="Dan_Abromov"
                       />{" "}
                     </Link>
-                  </div>
-                </div>
-
-                <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="#" className="-m-2 flex items-center p-2">
-                    <img
-                      src="img/indiaflag.png"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span
-                      className="ml-3 block text-base font-medium text-gray-900"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      INDIA
-                    </span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
+                  </div> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -264,7 +248,8 @@ function Navbar() {
                   )}
                 </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
+                {/* Profile / Country */}
+                {/* <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       src="https://ecommerce-sk.vercel.app/img/indiaflag.png"
@@ -287,7 +272,7 @@ function Navbar() {
                       alt="Dan_Abromov"
                     />
                   </a>
-                </div>
+                </div> */}
 
                 <div className="flex lg:ml-6">
                   <button className="" onClick={toggleMode}>
