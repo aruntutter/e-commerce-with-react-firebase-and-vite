@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import myContext from "../../context/data/myContext";
 
 function Filter() {
@@ -12,11 +12,53 @@ function Filter() {
     filterPrice,
     setFilterPrice,
     product,
+    setProduct,
   } = context;
+
+  const [filteredProducts, setFilteredProducts] = useState(product);
+
+  const uniqueCategories = Array.from(
+    new Set(product.map((item) => item.category))
+  );
+
+  useEffect(() => {
+    let updatedProducts = [...product];
+    console.log("Products after category filter:", updatedProducts);
+
+    if (filterType) {
+      updatedProducts = updatedProducts.filter(
+        (item) => item.category === filterType
+      );
+      console.log("Selected Category:", filterType);
+    }
+
+    if (filterPrice === "low") {
+      updatedProducts = updatedProducts.sort((a, b) => a.price - b.price);
+    } else if (filterPrice === "high") {
+      updatedProducts = updatedProducts.sort((a, b) => b.price - a.price);
+    }
+
+    setFilteredProducts(updatedProducts);
+  }, [filterType, filterPrice, product]);
+
+  const handlePriceSort = (e) => {
+    const selectedValue = e.target.value;
+    console.log("Selected Price Filter:", filterPrice);
+
+    if (selectedValue === "low") {
+      setFilterPrice("low");
+      const sortedProducts = [...product].sort((a, b) => a.price - b.price);
+      setProduct(sortedProducts);
+    } else if (selectedValue === "high") {
+      setFilterPrice("high");
+      const sortedProducts = [...product].sort((a, b) => b.price - a.price);
+      setProduct(sortedProducts);
+    }
+  };
   return (
-    <div className=" container mx-auto px-4 mt-5 ">
+    <div className=" container mx-auto ">
       <div
-        className="p-5 rounded-lg bg-gray-100 drop-shadow-xl border border-gray-200
+        className="p-5 rounded-1g bg-blue-300 drop-shadow-xl border border-gray-200
 "
         style={{
           backgroundColor: mode === "dark" ? "#282c34" : "",
@@ -41,7 +83,7 @@ function Filter() {
             value={searchkey}
             onChange={(e) => setSearchkey(e.target.value)}
             placeholder="Search here"
-            className="px-8 py-3 w-full rounded-md bg-violet-0 border-transparent outline-0 text-sm"
+            className="px-8 py-3 w-full rounded-md bg-blue-100 border-transparent outline-0 text-sm"
             style={{
               backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
               color: mode === "dark" ? "white" : "",
@@ -62,28 +104,30 @@ function Filter() {
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+              className="px-4 py-3 w-full rounded-md bg-blue-100 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
               style={{
                 backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
                 color: mode === "dark" ? "white" : "",
               }}
             >
-              {product.map((item, index) => {
-                return <option value={item.category}>{item.category}</option>;
-              })}
+              {uniqueCategories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
             </select>
+
             <select
               value={filterPrice}
-              onChange={(e) => setFilterPrice(e.target.value)}
-              className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0  focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+              onChange={handlePriceSort}
+              className="px-4 py-3 w-full rounded-md bg-blue-100 border-transparent outline-0  focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
               style={{
                 backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
                 color: mode === "dark" ? "white" : "",
               }}
             >
-              {product.map((item, index) => {
-                return <option value={item.price}>{item.price}</option>;
-              })}
+              <option value="low">Low to High</option>
+              <option value="high">High to Low</option>
             </select>
           </div>
         </div>
