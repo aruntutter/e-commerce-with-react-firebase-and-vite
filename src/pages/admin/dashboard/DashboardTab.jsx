@@ -130,7 +130,7 @@ function DashboardTab() {
                         date,
                       } = item;
                       return (
-                        <tbody className="">
+                        <tbody className="" key={index}>
                           <tr
                             className="bg-gray-50 border-b  dark:border-gray-700"
                             style={{
@@ -299,7 +299,7 @@ function DashboardTab() {
                           price,
                         } = item;
                         return (
-                          <tbody>
+                          <tbody key={index}>
                             <tr
                               className="bg-gray-50 border-b  dark:border-gray-700"
                               style={{
@@ -421,7 +421,7 @@ function DashboardTab() {
                 </h1>
                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                   <thead
-                    className="text-xs text-black uppercase bg-gray-200 "
+                    className="text-xs S.text-black uppercase bg-gray-200 "
                     style={{
                       backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
                       color: mode === "dark" ? "white" : "",
@@ -449,7 +449,7 @@ function DashboardTab() {
                   {user.map((item, index) => {
                     const { name, uid, email, date } = item;
                     return (
-                      <tbody>
+                      <tbody key={index}>
                         <tr
                           className="bg-gray-50 border-b  dark:border-gray-700"
                           style={{
