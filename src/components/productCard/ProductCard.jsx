@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { addToCart } from "../../redux/cartSlice";
 import { Navigate } from "react-router-dom";
 
-function ProductCard() {
+function ProductCard({ showAll }) {
   const context = useContext(myContext);
   const { mode, product, searchkey, filterType, filterPrice } = context;
 
@@ -26,6 +26,7 @@ function ProductCard() {
   // Filtering logic for category and price
   const [filteredProducts, setFilteredProducts] = useState(product);
 
+  // Update filteredProducts based on showAll prop
   useEffect(() => {
     let updatedProducts = [...product];
 
@@ -41,8 +42,12 @@ function ProductCard() {
       updatedProducts = updatedProducts.sort((a, b) => b.price - a.price);
     }
 
+    if (!showAll) {
+      updatedProducts = updatedProducts.slice(0, 8); // Show only 8 products initially
+    }
+
     setFilteredProducts(updatedProducts);
-  }, [filterType, filterPrice, product]);
+  }, [showAll, filterType, filterPrice, product]);
 
   return (
     <section className="text-gray-600 body-font">
@@ -60,7 +65,7 @@ function ProductCard() {
         <div className="flex flex-wrap -m-4">
           {filteredProducts
             .filter((obj) => obj.title.toLowerCase().includes(searchkey))
-            .slice(0, 8)
+            // .slice(0, 8)
             .map((item, index) => {
               const { title, price, description, imageUrl, id } = item;
               return (
