@@ -63,7 +63,7 @@ function DashboardTab() {
               </Tab>
             </TabList>
             {/* product  */}
-            <TabPanel>
+            <TabPanel key="unique_key_for_product">
               <div className="  px-4 md:px-0 mb-16">
                 <h1
                   className=" text-center mb-5 text-3xl font-semibold underline"
@@ -232,7 +232,7 @@ function DashboardTab() {
             </TabPanel>
 
             {/* order */}
-            <TabPanel>
+            <TabPanel key="unique_key_for_order">
               {/* <Order order={order} setOrder={setOrder} setLoading={setLoading} /> */}
               <div className="relative overflow-x-auto mb-16">
                 <h1
@@ -410,7 +410,7 @@ function DashboardTab() {
             </TabPanel>
 
             {/* user */}
-            <TabPanel>
+            <TabPanel key="unique_key_for_user">
               {/* <User addressInfo={addressInfo} setAddressInfo={setAddressInfo} setLoading={setLoading} /> */}
               <div className="relative overflow-x-auto mb-10">
                 <h1

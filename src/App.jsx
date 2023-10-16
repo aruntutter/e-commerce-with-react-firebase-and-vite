@@ -86,7 +86,7 @@ export const ProtectedRouteForAdmin = ({ children }) => {
   // console.log("ProtectedRouteForAdmin component called");
   const admin = JSON.parse(localStorage.getItem("user"));
 
-  if (admin.user.email === "aruntutter19@gmail.com") {
+  if (admin.user.email === "knupadhyay784@gmail.com") {
     return children;
   } else {
     return <Navigate to={"/login"} />;
