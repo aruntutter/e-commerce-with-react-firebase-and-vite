@@ -164,7 +164,7 @@ function ProductInfo() {
                     </a>
                   </span>
                 </div>
-                <p className="leading-relaxed border-b-2 mb-5 pb-5">
+                <p className="leading-relaxed mb-5 pb-5">
                   {products.description}
                 </p>
 
