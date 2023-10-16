@@ -200,6 +200,7 @@ const myState = (props) => {
         setProducts,
         addProduct,
         product,
+        setProduct,
         editHandle,
         updateProduct,
         deleteProduct,
