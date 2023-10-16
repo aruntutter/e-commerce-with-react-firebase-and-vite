@@ -69,11 +69,11 @@ function Navbar() {
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   <Link
-                    to={"/allproducts"}
+                    to={"/"}
                     className="text-sm font-medium text-gray-900 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    All Products
+                    Home
                   </Link>
 
                   {user ? (
@@ -148,7 +148,7 @@ function Navbar() {
       <header className="relative bg-white">
         <nav
           aria-label="Top"
-          className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl "
+          className="bg-blue-300 px-4 sm:px-6 lg:px-8 shadow-xl "
           style={{
             backgroundColor: mode === "dark" ? "#282c34" : "",
             color: mode === "dark" ? "white" : "",
@@ -199,11 +199,11 @@ function Navbar() {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   <Link
-                    to={"/allproducts"}
+                    to={"/"}
                     className="text-sm font-medium text-gray-700 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
-                    All Products
+                    Home
                   </Link>
                   {user ? (
                     <Link
