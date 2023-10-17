@@ -65,9 +65,9 @@ const Login = () => {
   return (
     <div className=" flex justify-center items-center h-screen">
       {loading && <Loader />}
-      <div className=" bg-gray-800 px-10 py-10 rounded-xl ">
+      <div className=" bg-blue-300 px-10 py-10 rounded-xl ">
         <div className="">
-          <h1 className="text-center text-white text-xl mb-4 font-bold">
+          <h1 className="text-center text-gray text-xl mb-4 font-bold">
             Login
           </h1>
         </div>
@@ -77,7 +77,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             name="email"
-            className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+            className=" bg-blue-100 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-gray placeholder:text-gray-600 outline-none"
             placeholder="Email"
           />
         </div>
@@ -86,29 +86,29 @@ const Login = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+            className=" bg-blue-100 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-gray placeholder:text-gray-600 outline-none"
             placeholder="Password"
           />
         </div>
         <div className=" flex justify-center mb-3">
           <button
             onClick={login}
-            className=" bg-yellow-500 w-full text-black font-bold  px-2 py-2 rounded-lg"
+            className=" bg-blue-600 w-full text-white font-bold  px-2 py-2 rounded-lg"
           >
             Login
           </button>
         </div>
         <div>
-          <h2 className="text-white">
+          <h2 className="text-gray">
             Don't have an account{" "}
-            <Link className=" text-yellow-500 font-bold" to={"/signup"}>
+            <Link className=" text-gray font-bold" to={"/signup"}>
               Signup
             </Link>
           </h2>
         </div>
 
         {/* Admin Credentials */}
-        <div className="mt-5 text-white">
+        <div className="mt-5 text-gray">
           <p style={{ textDecoration: "underline" }}>Admin Credentials:</p>
           <p className="mt-2">Email: knupadhyay784@gmail.com</p>
           <p>Password: 123456</p>

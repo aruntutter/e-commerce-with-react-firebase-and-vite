@@ -47,9 +47,9 @@ const Signup = () => {
   return (
     <div className=" flex justify-center items-center h-screen">
       {loading && <Loader />}
-      <div className=" bg-gray-800 px-10 py-10 rounded-xl ">
+      <div className=" bg-blue-300 px-10 py-10 rounded-xl ">
         <div className="">
-          <h1 className="text-center text-white text-xl mb-4 font-bold">
+          <h1 className="text-center text-gray text-xl mb-4 font-bold">
             Signup
           </h1>
         </div>
@@ -59,7 +59,7 @@ const Signup = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             name="name"
-            className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+            className=" bg-blue-100 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-gray placeholder:text-gray-600 outline-none"
             placeholder="Name"
           />
         </div>
@@ -70,7 +70,7 @@ const Signup = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             name="email"
-            className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+            className=" bg-blue-100 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-gray placeholder:text-gray-600 outline-none"
             placeholder="Email"
           />
         </div>
@@ -79,22 +79,22 @@ const Signup = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className=" bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none"
+            className=" bg-blue-100 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-gray placeholder:text-gray-600 outline-none"
             placeholder="Password"
           />
         </div>
         <div className=" flex justify-center mb-3">
           <button
             onClick={signup}
-            className=" bg-yellow-500 w-full text-white font-bold  px-2 py-2 rounded-lg"
+            className=" bg-blue-600 w-full text-white font-bold  px-2 py-2 rounded-lg"
           >
             Signup
           </button>
         </div>
         <div>
-          <h2 className="text-white">
+          <h2 className="text-gray">
             Have an account{" "}
-            <Link className=" text-yellow-500 font-bold" to={"/login"}>
+            <Link className=" text-gray font-bold" to={"/login"}>
               Login
             </Link>
           </h2>
