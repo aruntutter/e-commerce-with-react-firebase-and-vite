@@ -69,11 +69,7 @@ function ProductCard({ showAll }) {
             .map((item, index) => {
               const { title, price, description, imageUrl, id } = item;
               return (
-                <div
-                  onClick={() => (window.location.href = `/productinfo/${id}`)}
-                  key={index}
-                  className="p-4 md:w-1/4  drop-shadow-lg "
-                >
+                <div className="p-4 md:w-1/4  drop-shadow-lg ">
                   <div
                     className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden bg-blue-300"
                     style={{
@@ -81,7 +77,13 @@ function ProductCard({ showAll }) {
                       color: mode === "dark" ? "white" : "",
                     }}
                   >
-                    <div className="flex justify-center cursor-pointer bg-blue-300">
+                    <div
+                      className="flex justify-center cursor-pointer bg-blue-300"
+                      onClick={() =>
+                        (window.location.href = `/productinfo/${id}`)
+                      }
+                      key={index}
+                    >
                       <img
                         className="rounded-2xl w-full h-80 p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out"
                         src={imageUrl}
