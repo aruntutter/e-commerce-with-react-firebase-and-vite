@@ -126,18 +126,18 @@ function Navbar() {
                     </div>
                   )}
                   {/* User Profile Pic */}
-                  {/* <div className="flow-root">
+                  <div className="flow-root">
                     <Link
                       to={"/"}
                       className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
                     >
                       <img
                         className="inline-block w-10 h-10 rounded-full"
-                        src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+                        src="https://i.imgur.com/coqvVNi.jpg"
                         alt="Dan_Abromov"
                       />{" "}
                     </Link>
-                  </div> */}
+                  </div>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -248,31 +248,16 @@ function Navbar() {
                   )}
                 </div>
 
-                {/* Profile / Country */}
-                {/* <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 ">
-                    <img
-                      src="https://ecommerce-sk.vercel.app/img/indiaflag.png"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span
-                      className="ml-3 block text-sm font-medium"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      INDIA
-                    </span>
-                  </a>
-                </div>
+                {/* Profile */}
                 <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       className="inline-block w-10 h-10 rounded-full"
-                      src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+                      src="https://i.imgur.com/coqvVNi.jpg"
                       alt="Dan_Abromov"
                     />
                   </a>
-                </div> */}
+                </div>
 
                 <div className="flex lg:ml-6">
                   <button className="" onClick={toggleMode}>
