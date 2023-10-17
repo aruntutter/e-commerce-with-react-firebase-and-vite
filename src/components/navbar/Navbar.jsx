@@ -133,8 +133,8 @@ function Navbar() {
                     >
                       <img
                         className="inline-block w-10 h-10 rounded-full"
-                        src="https://i.imgur.com/coqvVNi.jpg"
-                        alt="Dan_Abromov"
+                        src="https://i.imgur.com/NXnrFNI.png"
+                        alt="profile"
                       />{" "}
                     </Link>
                   </div>
@@ -252,9 +252,9 @@ function Navbar() {
                 <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
-                      className="inline-block w-10 h-10 rounded-full"
-                      src="https://i.imgur.com/coqvVNi.jpg"
-                      alt="Dan_Abromov"
+                      className="inline-block w-10 h-10 rounded-full bg-gray-50"
+                      src="https://i.imgur.com/NXnrFNI.png"
+                      alt="profile"
                     />
                   </a>
                 </div>
