@@ -16,6 +16,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   const login = async () => {
+    if (!email || !password) {
+      toast.error("Email and password cannot be blank", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
+
     setLoading(true);
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -34,6 +48,16 @@ const Login = () => {
       setLoading(false);
     } catch (error) {
       console.log(error);
+      toast.error("Login failed. Please check your credentials.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       setLoading(false);
     }
   };
@@ -81,6 +105,13 @@ const Login = () => {
               Signup
             </Link>
           </h2>
+        </div>
+
+        {/* Admin Credentials */}
+        <div className="mt-5 text-white">
+          <p style={{ textDecoration: "underline" }}>Admin Credentials:</p>
+          <p className="mt-2">Email: knupadhyay784@gmail.com</p>
+          <p>Password: 123456</p>
         </div>
       </div>
     </div>
